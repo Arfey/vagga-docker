@@ -19,6 +19,8 @@ matrix:
         - brew update
         - brew install python3
         - pip install pathlib
+        - virtualenv venv -p python3
+        - source venv/bin/activate
 
 install:
   - pip install .
