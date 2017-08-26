@@ -27,6 +27,6 @@ install:
 script:
   - pip install pytest-cov codecov
   - py.test --cov=./ ./
-  - touch ~/.vagga.yaml
-  - echo alpine-mirror: http://dl-cdn.alpinelinux.org/alpine/ > ~/.vagga.yaml
+  - pwd
+  - echo "alpine-mirror: http://dl-cdn.alpinelinux.org/alpine/" > /home/user/.vagga.yaml
   - if [[ "$TRAVIS_OS_NAME" != "osx" ]]; then cd test/simple_app && vagga _build test_simple_flask ; fi
