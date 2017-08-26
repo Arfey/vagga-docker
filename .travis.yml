@@ -24,13 +24,12 @@ matrix:
         - pip install pytest-cov codecov
         - pip install pathlib
 
-  install:
-    - pip install .
+install:
+  - pip install .
 
-  script:
-    - py.test --cov=./ ./
-    - cd test/simple_app && vagga run
+script:
+  - py.test --cov=./ ./
+  - cd test/simple_app && vagga run
 
-  after_success:
-    - codecov
-
+after_success:
+  - codecov
