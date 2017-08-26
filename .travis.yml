@@ -12,8 +12,6 @@ python:
 matrix:
   include:
     - os: linux
-      before_install:
-        - pip install pytest-cov codecov
 
     - os: osx
       sudo: required
@@ -21,13 +19,14 @@ matrix:
       before_install:
         - brew update
         - brew install python3
-        - pip install pytest-cov codecov
         - pip install pathlib
 
 install:
   - pip install .
 
 script:
+  - pip install pytest-cov codecov
+  - pip install --upgrade setuptools
   - py.test --cov=./ ./
   - cd test/simple_app && vagga _build test_simple_flask
 
