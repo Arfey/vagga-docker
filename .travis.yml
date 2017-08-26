@@ -1,22 +1,25 @@
 language: python
 
-python:
-- 3.4.2
-- 3.4.3
-- 3.5.2
-- 3.5
-- 3.6
-
 services:
   - docker
 
 matrix:
   include:
     - os: linux
-    - os: osx
+      python:
+        - 3.4
+        - 3.5
+        - 3.6
+      before_install:
+        - pip install pytest-cov codecov
 
-before_install:
-  - pip install pytest-cov codecov
+    - os: osx
+      sudo: required
+      language: generic
+      before_install:
+        - brew update
+        - brew install python3
+        - pip install pytest-cov codecov
 
 install:
   - pip install .
@@ -24,7 +27,6 @@ install:
 script:
   - py.test --cov=./ ./
   - cd test/simple_app && vagga run
-  - curl http://0.0.0.0:5000
 
 after_success:
   - codecov
