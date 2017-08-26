@@ -21,11 +21,6 @@ matrix:
         - virtualenv venv -p python3
         - source venv/bin/activate
 
-before_script:
-  - |
-     export PATH=$HOME/.cargo/bin:$PATH:$PATH &&
-     cargo install --force travis-after-all
-
 install:
   - pip install .
 
