@@ -29,7 +29,7 @@ install:
 
 script:
   - py.test --cov=./ ./
-  - cd test/simple_app && vagga run
+  - cd test/simple_app && vagga _build test_simple_flask
 
 after_success:
   - codecov
