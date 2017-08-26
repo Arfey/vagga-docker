@@ -27,6 +27,7 @@ script:
   - pip install pytest-cov codecov
   - pip install --upgrade setuptools
   - py.test --cov=./ ./
+  - python --version
   - cd test/simple_app && vagga _build test_simple_flask
 
 after_success:
