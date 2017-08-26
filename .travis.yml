@@ -28,6 +28,8 @@ script:
   - pip install --upgrade setuptools
   - py.test --cov=./ ./
   - python --version
+  - alias python='python3'
+  - python --version
   - cd test/simple_app && vagga _build test_simple_flask
 
 after_success:
