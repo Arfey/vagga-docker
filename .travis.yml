@@ -1,0 +1,36 @@
+language: python
+
+python:
+  - 3.4.2
+  - 3.4.3
+  - 3.5.2
+  - 3.5
+  - 3.6
+
+services:
+  - docker
+
+matrix:
+  include:
+    - os: linux
+      dist: trusty
+      sudo: required
+    - os: osx
+
+before_install:
+  - pip install pytest-cov codecov
+
+# testing build package
+install:
+  - pip install .
+
+script:
+  - py.test --cov=./ ./
+  - |
+  cd test/simple_app
+  vagga _build test_build
+  vagga run
+  curl http://0.0.0.0:5000
+
+after_success:
+   - codecov
