@@ -1,3 +1,10 @@
 __pycache__
 *.egg-info
 /venv
+.vagga/
+
+# For test
+
+requirements.txt
+vagga.yaml
+
