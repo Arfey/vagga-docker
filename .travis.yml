@@ -30,4 +30,4 @@ script:
   - if [[ "$TRAVIS_OS_NAME" != "osx" ]]; then cd test/simple_app && vagga _build test_simple_flask ; fi
 
 after_success:
-  - travis-after-all && codecov
+  - codecov
